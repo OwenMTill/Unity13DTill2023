@@ -19,12 +19,12 @@ public class PaddleScript : MonoBehaviour
         Vector3 pos = new Vector3((Input.mousePosition.x - Screen.width/2)/(Screen.width/10), transform.position.y, (Input.mousePosition.y - Screen.width / 2) / (Screen.width / 10));
 
         //getting input for padddle rotation
-        float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
-        float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
+        float tiltAroundZ = Input.GetAxis("Mouse X") * tiltAngle * -1;
+        float tiltAroundX = Input.GetAxis("Mouse Y") * tiltAngle * -1;
 
         Quaternion targetRotation = Quaternion.Euler(tiltAroundX, 0, tiltAroundZ);
 
-        transform.rotation = targetRotation;
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * smooth);
         transform.position = pos;
     }
 }
