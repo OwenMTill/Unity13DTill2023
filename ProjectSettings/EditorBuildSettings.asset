@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/PaddleMenu.unity
+    guid: 4010ce4a337edee488170dfaeb66fbae
+  - enabled: 1
+    path: Assets/Scenes/PaddleGame.unity
+    guid: 10e99aeb906a2664390b5126849f1ae3
   m_configObjects: {}

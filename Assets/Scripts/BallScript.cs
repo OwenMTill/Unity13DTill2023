@@ -13,6 +13,10 @@ public class BallScript : MonoBehaviour
     TMP_Text scoreHUD;
     public GameObject GameOverUI;
     public TimerScript clock;
+    public AudioClip [] sfx;
+    public AudioClip endsfx;
+
+    AudioSource soundSource;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,7 @@ public class BallScript : MonoBehaviour
         score = 0;
         GameOverUI.SetActive(false);
         highScore = PlayerPrefs.GetInt("highscore");
+        soundSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +36,7 @@ public class BallScript : MonoBehaviour
         {
             GameOverUI.SetActive(true);
             clock.isGameOver = true;
+            soundSource.PlayOneShot(endsfx);
 
             if (score > highScore)
             {
@@ -64,6 +70,7 @@ public class BallScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Paddle")
         {
+            soundSource.PlayOneShot(sfx[Random.Range(0, sfx.Length)]);
             score++;
             scoreHUD.text = $"Score: {score}";
         }
