@@ -11,6 +11,11 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("PaddleGame");
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("PaddleMenu");
+    }
+
     // Update is called once per frame
     public void ExitGame()
     {
